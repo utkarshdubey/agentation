@@ -195,6 +195,7 @@ export function createSQLiteStore(dbPath?: string): SAFStore {
     deleteAnnotation: db.prepare("DELETE FROM annotations WHERE id = ?"),
     updateAnnotation: db.prepare(`
       UPDATE annotations SET
+        comment = COALESCE(@comment, comment),
         status = COALESCE(@status, status),
         updated_at = @updatedAt,
         resolved_at = COALESCE(@resolvedAt, resolved_at),
@@ -363,6 +364,7 @@ export function createSQLiteStore(dbPath?: string): SAFStore {
 
       stmts.updateAnnotation.run({
         id,
+        comment: data.comment ?? null,
         status: data.status ?? null,
         updatedAt: new Date().toISOString(),
         resolvedAt: data.resolvedAt ?? null,

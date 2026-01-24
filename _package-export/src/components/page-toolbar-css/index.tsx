@@ -1446,11 +1446,29 @@ export function PageFeedbackToolbarCSS({
 
       window.getSelection()?.removeAllRanges();
 
-      // Sync to server (non-blocking)
+      // Sync to server (non-blocking, but update local ID with server's ID)
       if (endpoint && currentSessionId) {
-        syncAnnotation(endpoint, currentSessionId, newAnnotation).catch((error) => {
-          console.warn("[Agentation] Failed to sync annotation:", error);
-        });
+        syncAnnotation(endpoint, currentSessionId, newAnnotation)
+          .then((serverAnnotation) => {
+            // Update local annotation with server-assigned ID
+            if (serverAnnotation.id !== newAnnotation.id) {
+              setAnnotations((prev) =>
+                prev.map((a) =>
+                  a.id === newAnnotation.id ? { ...a, id: serverAnnotation.id } : a
+                )
+              );
+              // Also update the animated markers set
+              setAnimatedMarkers((prev) => {
+                const next = new Set(prev);
+                next.delete(newAnnotation.id);
+                next.add(serverAnnotation.id);
+                return next;
+              });
+            }
+          })
+          .catch((error) => {
+            console.warn("[Agentation] Failed to sync annotation:", error);
+          });
       }
     },
     [pendingAnnotation, onAnnotationAdd, endpoint, currentSessionId],
