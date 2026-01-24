@@ -168,7 +168,7 @@ function App() {
           <p style={{ marginTop: "1.5rem" }}>
             <strong>Other agents:</strong> Any tool that supports MCP can connect.
             Point your agent&apos;s MCP config to <code>npx agentation server</code> and
-            it will have access to annotation tools like <code>agentation_get_pending</code>,{" "}
+            it will have access to annotation tools like <code>agentation_get_all_pending</code>,{" "}
             <code>agentation_list_sessions</code>, and <code>agentation_resolve</code>.
           </p>
         </section>
