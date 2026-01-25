@@ -3210,55 +3210,57 @@ export function PageFeedbackToolbarCSS({
         </div>
       )}
 
-      {/* DEBUG: Temporary toggle for testing MCP width animation */}
-      <div
-        style={{
-          position: "fixed",
-          bottom: 20,
-          left: 20,
-          zIndex: 2147483646,
-          display: "flex",
-          gap: 8,
-          alignItems: "center",
-          background: "rgba(0,0,0,0.8)",
-          padding: "8px 12px",
-          borderRadius: 8,
-          fontFamily: "system-ui, sans-serif",
-          fontSize: 12,
-          color: "#fff",
-        }}
-      >
-        <span>MCP:</span>
-        <button
-          onClick={() => setDebugMcpOverride(debugMcpOverride === true ? null : true)}
+      {/* DEBUG: Temporary toggle for testing MCP width animation (localhost only) */}
+      {isLocalhost && (
+        <div
           style={{
-            padding: "4px 8px",
-            borderRadius: 4,
-            border: "none",
-            background: debugMcpOverride === true ? "#22c55e" : "#333",
+            position: "fixed",
+            bottom: 20,
+            left: 20,
+            zIndex: 2147483646,
+            display: "flex",
+            gap: 8,
+            alignItems: "center",
+            background: "rgba(0,0,0,0.8)",
+            padding: "8px 12px",
+            borderRadius: 8,
+            fontFamily: "system-ui, sans-serif",
+            fontSize: 12,
             color: "#fff",
-            cursor: "pointer",
           }}
         >
-          On
-        </button>
-        <button
-          onClick={() => setDebugMcpOverride(debugMcpOverride === false ? null : false)}
-          style={{
-            padding: "4px 8px",
-            borderRadius: 4,
-            border: "none",
-            background: debugMcpOverride === false ? "#ef4444" : "#333",
-            color: "#fff",
-            cursor: "pointer",
-          }}
-        >
-          Off
-        </button>
-        <span style={{ opacity: 0.5, marginLeft: 4 }}>
-          {debugMcpOverride === null ? `(actual: ${connectionStatus})` : "(override)"}
-        </span>
-      </div>
+          <span>MCP:</span>
+          <button
+            onClick={() => setDebugMcpOverride(debugMcpOverride === true ? null : true)}
+            style={{
+              padding: "4px 8px",
+              borderRadius: 4,
+              border: "none",
+              background: debugMcpOverride === true ? "#22c55e" : "#333",
+              color: "#fff",
+              cursor: "pointer",
+            }}
+          >
+            On
+          </button>
+          <button
+            onClick={() => setDebugMcpOverride(debugMcpOverride === false ? null : false)}
+            style={{
+              padding: "4px 8px",
+              borderRadius: 4,
+              border: "none",
+              background: debugMcpOverride === false ? "#ef4444" : "#333",
+              color: "#fff",
+              cursor: "pointer",
+            }}
+          >
+            Off
+          </button>
+          <span style={{ opacity: 0.5, marginLeft: 4 }}>
+            {debugMcpOverride === null ? `(actual: ${connectionStatus})` : "(override)"}
+          </span>
+        </div>
+      )}
     </>,
     document.body,
   );
