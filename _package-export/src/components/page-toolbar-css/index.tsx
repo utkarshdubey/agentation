@@ -2885,6 +2885,13 @@ export function PageFeedbackToolbarCSS({
                       }
                     }
                   }}
+                  onContextMenu={(e) => {
+                    if (settings.markerClickBehavior === "delete") {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      if (!markersExiting) startEditAnnotation(annotation);
+                    }
+                  }}
                 >
                   {showDeleteState ? (
                     showDeleteHover ? <IconXmark size={isMulti ? 18 : 16} /> : <IconEdit size={16} />
@@ -3001,6 +3008,13 @@ export function PageFeedbackToolbarCSS({
                         console.log("Editing annotation");
                         startEditAnnotation(annotation);
                       }
+                    }
+                  }}
+                  onContextMenu={(e) => {
+                    if (settings.markerClickBehavior === "delete") {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      if (!markersExiting) startEditAnnotation(annotation);
                     }
                   }}
                 >
