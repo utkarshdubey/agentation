@@ -441,6 +441,7 @@ export function SideNav() {
     { href: "/webhooks", label: "Webhooks" },
     { section: "Resources" },
     { href: "/changelog", label: "Changelog" },
+    { href: "/blog", label: "Blog" },
     { href: "/faq", label: "FAQ" },
   ];
 
