@@ -40,6 +40,7 @@ const releases: Release[] = [
       { type: "added", text: <><a href="/features#react-detection" className="styled-link">React component detection</a> — shows full component hierarchy on hover, not just DOM elements</> },
       { type: "added", text: "Configurable marker click behavior — choose between edit or delete on click" },
       { type: "improved", text: "Component detection adapts to output detail level (Compact, Standard, Detailed, Forensic)" },
+      { type: "improved", text: "Cursor styles in settings panel — I-beam for text inputs, pointer for clickable items" },
     ],
   },
   {
