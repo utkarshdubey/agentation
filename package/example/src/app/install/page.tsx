@@ -82,7 +82,7 @@ function App() {
         </section>
 
         <section>
-          <h2>Agent Integration (Optional)</h2>
+          <h2>Agent Integration <span className="sketchy-underline" style={{ "--marker-color": "#febc2e" } as React.CSSProperties}>Recommended</span></h2>
           <p>
             Connect Agentation to any AI coding agent that supports{" "}
             <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener noreferrer">MCP</a>.
