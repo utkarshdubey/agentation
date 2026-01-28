@@ -13,7 +13,7 @@ export default function APIPage() {
         </header>
 
         <section>
-          <h2>Overview</h2>
+          <h2 id="overview">Overview</h2>
           <p>
             Agentation exposes callbacks that let you integrate annotations into
             your own workflows — send to a backend, pipe to terminal, trigger
@@ -27,7 +27,7 @@ export default function APIPage() {
         </section>
 
         <section>
-          <h2>Props</h2>
+          <h2 id="props">Props</h2>
           <div className="props-list">
             <div className="prop-item">
               <div className="prop-header">
@@ -83,7 +83,7 @@ export default function APIPage() {
         </section>
 
         <section>
-          <h2>Basic usage</h2>
+          <h2 id="basic-usage">Basic usage</h2>
           <p>
             Receive annotation data directly in your code:
           </p>
@@ -106,7 +106,7 @@ function App() {
         </section>
 
         <section>
-          <h2>Annotation type</h2>
+          <h2 id="annotation-type">Annotation type</h2>
           <p>
             The <code>Annotation</code> object passed to callbacks. See <a href="/schema">Agentation Format</a> for the full schema.
           </p>
