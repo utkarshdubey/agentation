@@ -1389,9 +1389,9 @@ export function PageFeedbackToolbarCSS({
     if (!isActive || pendingAnnotation) return;
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (
-        closestCrossingShadow(e.target as HTMLElement, "[data-feedback-toolbar]")
-      ) {
+      // Use composedPath to get actual target inside shadow DOM
+      const target = (e.composedPath()[0] || e.target) as HTMLElement;
+      if (closestCrossingShadow(target, "[data-feedback-toolbar]")) {
         setHoverInfo(null);
         return;
       }
@@ -1433,7 +1433,8 @@ export function PageFeedbackToolbarCSS({
         return;
       }
 
-      const target = e.target as HTMLElement;
+      // Use composedPath to get actual target inside shadow DOM, falling back to e.target
+      const target = (e.composedPath()[0] || e.target) as HTMLElement;
 
       if (closestCrossingShadow(target, "[data-feedback-toolbar]")) return;
       if (closestCrossingShadow(target, "[data-annotation-popup]")) return;
@@ -1623,7 +1624,8 @@ export function PageFeedbackToolbarCSS({
     if (!isActive || pendingAnnotation) return;
 
     const handleMouseDown = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
+      // Use composedPath to get actual target inside shadow DOM
+      const target = (e.composedPath()[0] || e.target) as HTMLElement;
 
       if (closestCrossingShadow(target, "[data-feedback-toolbar]")) return;
       if (closestCrossingShadow(target, "[data-annotation-marker]")) return;
