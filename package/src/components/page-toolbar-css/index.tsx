@@ -1107,7 +1107,6 @@ export function PageFeedbackToolbarCSS({
             sessionId = newSession.id;
             setCurrentSessionId(sessionId);
             saveSessionId(pathname, sessionId);
-            console.log(`[Agentation] Created new session on reconnect: ${sessionId}`);
           }
 
           // Find annotations that need syncing
@@ -1115,8 +1114,6 @@ export function PageFeedbackToolbarCSS({
           const unsyncedLocal = localAnnotations.filter((a) => !serverIds.has(a.id));
 
           if (unsyncedLocal.length > 0) {
-            console.log(`[Agentation] Syncing ${unsyncedLocal.length} local annotations after reconnect`);
-
             const results = await Promise.allSettled(
               unsyncedLocal.map((annotation) =>
                 syncAnnotation(endpoint, sessionId!, {
@@ -3615,16 +3612,10 @@ export function PageFeedbackToolbarCSS({
                   onMouseLeave={() => handleMarkerHover(null)}
                   onClick={(e) => {
                     e.stopPropagation();
-                    console.log(
-                      "Marker clicked, behavior:",
-                      settings.markerClickBehavior,
-                    );
                     if (!markersExiting) {
                       if (settings.markerClickBehavior === "delete") {
-                        console.log("Deleting annotation");
                         deleteAnnotation(annotation.id);
                       } else {
-                        console.log("Editing annotation");
                         startEditAnnotation(annotation);
                       }
                     }
@@ -3749,16 +3740,10 @@ export function PageFeedbackToolbarCSS({
                   onMouseLeave={() => handleMarkerHover(null)}
                   onClick={(e) => {
                     e.stopPropagation();
-                    console.log(
-                      "Marker clicked, behavior:",
-                      settings.markerClickBehavior,
-                    );
                     if (!markersExiting) {
                       if (settings.markerClickBehavior === "delete") {
-                        console.log("Deleting annotation");
                         deleteAnnotation(annotation.id);
                       } else {
-                        console.log("Editing annotation");
                         startEditAnnotation(annotation);
                       }
                     }
