@@ -29,7 +29,8 @@
     "build": "tsup",
     "watch": "tsup --watch",
     "dev": "pnpm build && pnpm watch",
-    "start": "pnpm build && node dist/cli.js server"
+    "start": "pnpm build && node dist/cli.js server",
+    "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",

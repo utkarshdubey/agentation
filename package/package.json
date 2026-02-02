@@ -27,7 +27,8 @@
     "watch": "tsup --watch",
     "dev": "pnpm build && pnpm watch",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
