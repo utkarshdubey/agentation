@@ -24,7 +24,7 @@ export default function Agentation2Page() {
 
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "0.75rem" }}>
           <p style={{ margin: 0 }}>
-            Since launch, Agentation has already become part of how a lot of developers work with AI on UI. <a href="https://github.com/benjitaylor/agentation" target="_blank" rel="noopener noreferrer">1,500+ GitHub stars</a>, <a href="https://www.npmjs.com/package/agentation" target="_blank" rel="noopener noreferrer">100,000+ installs</a>.
+            Since launch, Agentation has already become part of how a lot of developers work with AI on UI, with over <a href="https://github.com/benjitaylor/agentation" target="_blank" rel="noopener noreferrer">1.8k GitHub stars</a> and <a href="https://www.npmjs.com/package/agentation" target="_blank" rel="noopener noreferrer">hundreds of thousands of installs</a> via npm.
           </p>
 
           <p style={{ margin: 0 }}>
@@ -45,7 +45,7 @@ export default function Agentation2Page() {
             With MCP, agents can fetch your current annotations, acknowledge them, ask follow-up questions, resolve issues with summaries, or dismiss feedback with reasons. Your annotations flow directly into the agent&rsquo;s context.
           </p>
           <p>
-            The server runs locally and supports multiple interfaces: MCP tools for direct agent integration, an HTTP API for custom workflows, and Server-Sent Events for real-time updates. It&rsquo;s designed to work with Claude Code, Cursor, Windsurf, and any MCP-compatible client.
+            The server runs locally and supports multiple interfaces: <Link href="/mcp">MCP tools</Link> for direct agent integration, an <Link href="/api">HTTP API</Link> for custom workflows, and <Link href="/api#real-time-events">Server-Sent Events</Link> for real-time updates. It&rsquo;s designed to work with Claude Code and any MCP-compatible client.
           </p>
           <p>
             Here&rsquo;s what the workflow looks like:
@@ -63,7 +63,7 @@ export default function Agentation2Page() {
         <section>
           <h2 id="sessions">Sessions &amp; Smart Filtering</h2>
           <p>
-            Every browser tab now gets its own <Link href="/mcp#sessions">session</Link>, and every annotation carries rich metadata: when it was created, when it was last updated, its current status, and who resolved it. This unlocks entirely new ways to work with feedback.
+            Every page now gets its own <Link href="/mcp#sessions">session</Link>, and every annotation carries rich metadata: when it was created, when it was last updated, its current status, and who resolved it. This unlocks entirely new ways to work with feedback.
           </p>
           <p>
             Ask your agent things like:
@@ -120,7 +120,7 @@ export default function Agentation2Page() {
             This makes it dramatically easier for AI agents to find the right file. Instead of searching for a class name that might be generated, they can search for <code>ProductCard</code> or <code>CheckoutButton</code>, the names you actually use.
           </p>
           <p>
-            The detection adapts to your output format: minimal in Compact mode, framework-filtered in Standard, CSS-correlated in Detailed, and everything (including internals) in Forensic.
+            The detection adapts to your output format: disabled in Compact mode, framework-filtered in Standard, CSS-correlated in Detailed, and everything (including internals) in Forensic.
           </p>
         </section>
 

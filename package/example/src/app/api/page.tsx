@@ -301,10 +301,8 @@ curl -N "http://localhost:4747/events?domain=localhost:3001"
 # Reconnect after disconnect (replay missed events)
 curl -N -H "Last-Event-ID: 42" http://localhost:4747/sessions/:id/events`}
           />
-          <p style={{ marginTop: "0.75rem", fontSize: "0.8125rem", color: "rgba(0,0,0,0.55)" }}>
-            <strong>Event types:</strong>
-          </p>
-          <ul style={{ fontSize: "0.8125rem", color: "rgba(0,0,0,0.65)", marginTop: "0.25rem" }}>
+          <h3 style={{ marginTop: "1.25rem" }}>Event types</h3>
+          <ul style={{ fontSize: "0.8125rem", color: "rgba(0,0,0,0.65)", marginTop: "0.5rem" }}>
             <li><code>annotation.created</code> &mdash; New annotation added</li>
             <li><code>annotation.updated</code> &mdash; Annotation modified (comment, status, etc.)</li>
             <li><code>annotation.deleted</code> &mdash; Annotation removed</li>
