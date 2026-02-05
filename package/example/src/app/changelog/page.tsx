@@ -31,7 +31,7 @@ function isMajorVersion(version: string): boolean {
 const releases: Release[] = [
   {
     version: "2.0.0",
-    date: "January 25, 2026",
+    date: "February 5, 2026",
     summary: "The shift from \"annotate, copy, paste\" to \"annotate and collaborate.\" Agents now see your annotations directly. This update adds MCP server integration, webhooks, React component detection, Shadow DOM support, and much more.",
     changes: [
       { type: "added", text: <><a href="/mcp" className="styled-link">MCP server</a> for direct agent integration — agents can fetch, acknowledge, resolve, and dismiss annotations</> },

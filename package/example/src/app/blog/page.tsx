@@ -16,7 +16,7 @@ const posts: BlogPost[] = [
     slug: "introducing-agentation-2",
     title: "Introducing Agentation 2.0",
     description: "Annotations become a two-way conversation. Your AI agent can now see, respond to, and resolve your feedback in real time.",
-    date: "January 25, 2026",
+    date: "February 5, 2026",
     image: "/blog/agentation-2.png",
   },
 ];
