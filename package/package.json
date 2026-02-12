@@ -17,6 +17,17 @@
         "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
       }
+    },
+    "./standalone": {
+      "types": "./dist/standalone.d.ts",
+      "import": {
+        "types": "./dist/standalone.d.mts",
+        "default": "./dist/standalone.mjs"
+      },
+      "require": {
+        "types": "./dist/standalone.d.ts",
+        "default": "./dist/standalone.js"
+      }
     }
   },
   "files": [

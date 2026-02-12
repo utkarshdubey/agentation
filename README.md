@@ -39,6 +39,20 @@ The toolbar appears in the bottom-right corner. Click to activate, then click an
 - **Dark/light mode** – Matches your preference or set manually
 - **Zero dependencies** – Pure CSS animations, no runtime libraries
 
+
+### Standalone mounting (extensions/content scripts)
+
+If you need to inject Agentation into arbitrary pages (for example from a browser extension), use the standalone API:
+
+```ts
+import { mountAgentation, unmountAgentation } from 'agentation/standalone';
+
+mountAgentation();
+
+// Later
+unmountAgentation();
+```
+
 ## How it works
 
 Agentation captures class names, selectors, and element positions so AI agents can `grep` for the exact code you're referring to. Instead of describing "the blue button in the sidebar," you give the agent `.sidebar > button.primary` and your feedback.
@@ -47,6 +61,17 @@ Agentation captures class names, selectors, and element positions so AI agents c
 
 - React 18+
 - Desktop browser (mobile not supported)
+
+
+## Browser extension (experimental)
+
+A new workspace package at `extension/` builds an unpacked Chrome extension that mounts Agentation on arbitrary websites via `agentation/standalone`.
+
+```bash
+pnpm --dir extension build
+```
+
+Then load `extension/dist` in `chrome://extensions` (Developer mode → Load unpacked).
 
 ## Docs
 
