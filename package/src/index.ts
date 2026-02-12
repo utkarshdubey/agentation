@@ -48,3 +48,11 @@ export {
 
 // Types
 export type { Annotation } from "./types";
+
+// Standalone mounting API (for extensions/content scripts)
+export {
+  mountAgentation,
+  unmountAgentation,
+  isAgentationMounted,
+} from "./standalone";
+export type { MountAgentationOptions } from "./standalone";

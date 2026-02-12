@@ -115,6 +115,24 @@ type Annotation = {
 
 > **Note:** This is a simplified type. The full type includes additional fields for Agent Sync (`url`, `status`, `thread`, `reactComponents`, etc.). See [agentation.dev/schema](https://agentation.dev/schema) for the complete schema.
 
+
+### Standalone mounting (extensions/content scripts)
+
+If you need to inject Agentation into arbitrary pages (for example from a browser extension), use the standalone API:
+
+```ts
+import { mountAgentation, unmountAgentation } from 'agentation/standalone';
+
+mountAgentation({
+  webhookUrl: 'https://example.com/webhook',
+});
+
+// Later
+unmountAgentation();
+```
+
+`mountAgentation()` creates a default `#agentation-root` container on `document.body` unless you pass a custom `target`.
+
 ## How it works
 
 Agentation captures class names, selectors, and element positions so AI agents can `grep` for the exact code you're referring to. Instead of describing "the blue button in the sidebar," you give the agent `.sidebar > button.primary` and your feedback.

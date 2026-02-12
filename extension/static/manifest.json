@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Agentation",
+  "description": "Annotate and freeze animations on any website.",
+  "version": "0.0.1",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Agentation",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "toggle-agentation": {
+      "suggested_key": {
+        "default": "Alt+Shift+A"
+      },
+      "description": "Toggle Agentation toolbar"
+    }
+  }
+}
